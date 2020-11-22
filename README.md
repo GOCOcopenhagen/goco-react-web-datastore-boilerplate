@@ -1,4 +1,4 @@
-# GOCO React Web Boilerplate ⚙️
+# GOCO React Web Datastore Boilerplate ⚙️
 
 #### Engine: `v12.16.*`
 #### React-version `=<16.8`
