@@ -11,6 +11,17 @@
 
 `npm run start` to start the project
 
+## Backend - Basic DataStore
+Open the GraphQL schema in the amplify/backend/api/datasourcename/schema.graphql. You can use the sample or the one below that will be used in this example:
+
+```graphql
+type Click @model {
+  id: ID!
+  time: Int!
+}
+```
+See more here: [Datastore example](https://github.com/dabit3/amplify-datastore-example/blob/master/README.md)
+
 ## Components
  - ALL Components must be in a file that starts with a capital letter
  - atoms should be files that are purely styled components 
@@ -28,6 +39,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Notable documentation
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Amplify](https://docs.amplify.aws/lib/q/platform/js)
+- [Datastore example](https://github.com/dabit3/amplify-datastore-example/blob/master/README.md)
 
 ## Available Scripts
 
