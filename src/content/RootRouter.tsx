@@ -1,23 +1,28 @@
 import React from 'react'
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch 
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {AppContext} from '../globals/loadingContext'
 
 import { IndexPage } from './Index/IndexPage'
+import {Loading} from '../components/molecules/Loading'
 
 export default function RootRouter() {
-    return (
-        <Router>
+    const [loading, constollLoading] = React.useState<Boolean>(false);
 
-            {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-            <Switch>
-                <Route exact path="*">
-                    <IndexPage />
-                </Route>
-            </Switch>
-        </Router>
+    const setLoading = (state:boolean) => {
+        constollLoading(state)
+        return 0;
+    }
+
+    return (
+        <AppContext.Provider value={setLoading}>
+            {loading && <Loading/>}
+            <Router>
+                <Switch>
+                    <Route exact path="*">
+                        <IndexPage />
+                    </Route>
+                </Switch>
+            </Router>
+        </AppContext.Provider>
     )
 }

@@ -1,26 +1,43 @@
 import * as React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import {useAppContext} from '../../globals/loadingContext'
 
-import { Dispatch, RootState } from '../../state/store'
+import { DataStore } from "@aws-amplify/datastore";
+import { Click } from "../../models";
+
 import { SampleButton } from '../atoms/SampleButton'
-import { DisplayCount } from '../molecules/DisplayCount'
+import { DisplayClick } from '../molecules/DisplayClick'
 
 interface Props {
 }
 
 export const Counter: React.FC<Props> = () => {
+    const [clicks, setClicks] = React.useState<Click[]>([])
+    const setLoading = useAppContext()
 
-    const dispatch = useDispatch<Dispatch>()
-    const testCounter = useSelector((state: RootState) => state.test)
-    
-    const handleIncrement = () => {
-        dispatch.test.increment()
+    const query = async () => {
+        setLoading(true)
+        setClicks(await DataStore.query(Click))
+        setLoading(false)
+    }
+
+    React.useEffect(() => { query() }, [])
+    DataStore.observe(Click).subscribe(query)
+
+
+    const handleClick = async () => {
+        setLoading(true)
+        await DataStore.save(
+            new Click({
+                time: Date.now()
+            })
+        );
+        setLoading(false)
     }
 
     return (
         <>
-            <DisplayCount count={testCounter.count} />
-            <SampleButton onClick={handleIncrement} type="button" margin>Click me to increment</SampleButton>
+            {clicks && clicks.map(({ time }, key) => <DisplayClick key={key} clickTime={time} />)}
+            <SampleButton onClick={handleClick} type="button" margin>Click me to increment</SampleButton>
         </>
     )
 }
