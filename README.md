@@ -41,7 +41,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  - Do not outcomment code. Use the vcs!
  - Try to make the code compact. Do not have lines with one symble. Fx:
  
- ```react
+ ```html
 //Illegal 
 <a 
     href="https://www.facebook.com/fundbrickscompany/"
