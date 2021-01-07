@@ -37,7 +37,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  ## Design
  - This project uses [Atomic design](https://bradfrost.com/blog/post/atomic-web-design/)
  
- ## Illigale stuff
+ ## Illegal stuff
  - Do not outcomment code. Use the vcs!
  - Try to make the code compact. Do not have lines with one symble. Fx:
  
