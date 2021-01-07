@@ -42,14 +42,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  - Try to make the code compact. Do not have lines with one symble. Fx:
  
  ```js
-<a
+//Illegal 
+<a 
     href="https://www.facebook.com/fundbrickscompany/"
     rel="nofollow noopener"
->
+> //<---- no 
     <FBIcon 
-        name={"facebook"} 
+        name={"facebook"}
     />
-</a>
+</a> 
+
+//Legal 
+<a href="https://www.facebook.com/fundbrickscompany/" rel="nofollow noopener"><FBIcon name={"facebook"} /></a>  //us
+
 ```
 
 ## Notable documentation
