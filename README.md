@@ -1,6 +1,6 @@
 # GOCO React Web Datastore Boilerplate ⚙️
 
-#### Engine: `v12.16.*`
+#### Engine: `v12.16.*` / `Erbium`
 #### React-version `=<16.8`
 #### AWS CLI `2`
 #### npm `6.14.*`
